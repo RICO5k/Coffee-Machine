@@ -61,4 +61,17 @@ public class Machine {
         this.cups += cups;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("The coffee machine has:\n");
+        sb.append(waterSupply + " of water\n");
+        sb.append(milkSupply + " of milk\n");
+        sb.append(coffeeSupply + " of coffee beans\n");
+        sb.append(cups + " of disposable cups\n");
+        sb.append(money + " of money\n");
+
+        return sb.toString();
+    }
 }
