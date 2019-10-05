@@ -20,6 +20,7 @@ public class Machine {
 
     public void buyCoffee(Coffee coffee) {
         if(hasEnoughIngredients(coffee)) {
+            System.out.println("I have enough resources, making you a coffee!");
             getPayment(coffee);
             makeCoffee(coffee);
         }
@@ -27,13 +28,19 @@ public class Machine {
 
     private boolean hasEnoughIngredients(Coffee coffee) {
         if(waterSupply < coffee.getNeededWater()) {
+            System.out.println("Sorry, not enough water!");
             return false;
         } else if(milkSupply < coffee.getNeededMilk()) {
+            System.out.println("Sorry, not enough milk!");
             return false;
         } else if(coffeeSupply < coffee.getNeededCoffee()) {
+            System.out.println("Sorry, not enough coffee beans!");
+            return false;
+        } else if(cups <= 0) {
+            System.out.println("Sorry, not enough cups!");
             return false;
         }
-        return cups > 0;
+        return true;
     }
 
     private void getPayment(Coffee coffee) {
